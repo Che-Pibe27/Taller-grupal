@@ -3,66 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Barraca Ladrillos SRL</h1>
-    <div id="register">
-        <p class="regProducts">Registrar producto</p>
-        <form method="post" action="#">
-            <div>
-                <label for="regID">ID:</label>
-                <input placeholder="Número de ID" id="regID" name="regID" type="text">
-                <br>
-                <label for="regName">Nombre:</label>
-                <input placeholder="Nombre del producto" id="regName" name="regName" type="text">
-                <br>
-                <label for="regDesc">Descripción:</label>
-                <textarea placeholder="Descripción del producto" name="regDesc" id="regDesc" cols="30" rows="3"></textarea>
-                <br>
-                <label for="regStock">Stock:</label>
-                <input placeholder="Cantidad de stock que ingresa" type="number" name="regStock" id="regStock">
-                <br>
-                <label for="regPrecio">Precio:</label>
-                <input placeholder="Precio del producto" type="number" name="regPrecio" id="regPrecio">                
-            </div>          
-        </form>
-    </div>
+    <header>
+        <nav class="navbar">
+            <h1 class="navbar__title">Barraca <span>Ladrillos SRL</span></h1>
+            <div class="navbar__items">
+                <p class="navbar__item active" id="nav__register">Registrar</p>
+                <p class="navbar__item" id="nav__movements">Movimientos</p>
+                <a class="navbar__item" href="#">Inventario</a>
+            </div>
+        </nav>
+    </header>
 
-    <h2>Movimientos</h2>
-    <div id="movement">
-        <p class="regProducts">Registrar movimientos</p>
-        <form method="post" action="#">
-            <div>
-                <label for="movType">Tipo de movimiento:</label>
-                <select id="movType" name="movType">
-                    <option value="Venta">Venta</option>
-                    <option value="Compra">Compra</option>
-                </select>
-                <br>
-                <label for="movDate">Fecha:</label>
-                <input id="movDate" name="movDate" type="date">
-                <br>
-                <label for="movID">ID Producto:</label>
-                <input type="number" name="movID" id="movID">
-                <br>
-                <label for="movAmount">Cantidad:</label>
-                <input type="number" name="movAmount" id="movAmount">
-                <br>
-                <label for="movUnitCost">Costo unitario:</label>
-                <input type="number" name="movUnitCost" id="movUnitCost">
-                <br>
-                <label for="movSubtotal">Subtotal:</label>
-                <input type="number" name="movSubtotal" id="movSubtotal"> 
-                <br>
-                <label for="movIVA">IVA:</label>
-                <input type="number" name="movIVA" id="movIVA"> <br>
-                <label for="movTotal">TOTAL:</label>
-                <input type="number" name="movTotal" id="movTotal">                              
-            </div>          
-        </form>
-    </div>
+    <main>
+        <div id="register" class="form__container">
+            <div class="formTitle">
+                <h2>Productos</h2>
+                <p class="regProducts">Registrar producto</p>
+            </div>
+            <form method="post" action="#">
+                <div>
+                    <label for="regID">ID:</label>
+                    <input placeholder="Número de ID" id="regID" name="regID" type="text">
+                    
+                    <label for="regName">Nombre:</label>
+                    <input placeholder="Nombre del producto" id="regName" name="regName" type="text">
+                    
+                    <label for="regDesc">Descripción:</label>
+                    <textarea placeholder="Descripción del producto" name="regDesc" id="regDesc" cols="30" rows="3"></textarea>
+                    
+                    <label for="regStock">Stock:</label>
+                    <input placeholder="Cantidad de stock que ingresa" type="number" name="regStock" id="regStock">
+                    
+                    <label for="regPrecio">Precio:</label>
+                    <input placeholder="Precio del producto" type="number" name="regPrecio" id="regPrecio">                
+
+                    <button class="submitBtn" type="submit">Enviar</button>
+                </div>          
+            </form>
+        </div>
     
+        <div id="movement" class="form__container hidden">
+            <div class="formTitle">
+                <h2>Movimientos</h2>
+                <p class="regProducts">Registrar movimientos</p>
+            </div>
+            <form method="post" action="#">
+                <div>
+                    <label for="movType">Tipo de movimiento:</label>
+                    <select id="movType" name="movType">
+                        <option value="Venta">Venta</option>
+                        <option value="Compra">Compra</option>
+                    </select>
+                    
+                    <label for="movDate">Fecha:</label>
+                    <input id="movDate" name="movDate" type="date">
+                    
+                    <label for="movID">ID Producto:</label>
+                    <input type="number" name="movID" id="movID">
+                    
+                    <label for="movAmount">Cantidad:</label>
+                    <input type="number" name="movAmount" id="movAmount">
+                    
+                    <label for="movUnitCost">Costo unitario:</label>
+                    <input type="number" name="movUnitCost" id="movUnitCost">
+                    
+                    <label for="movSubtotal">Subtotal:</label>
+                    <input type="number" name="movSubtotal" id="movSubtotal"> 
+                    
+                    <label for="movIVA">IVA:</label>
+                    <input type="number" name="movIVA" id="movIVA">
+
+                    <label for="movTotal">TOTAL:</label>
+                    <input type="number" name="movTotal" id="movTotal">   
+                    <button class="submitBtn" type="submit">Enviar</button>                           
+                </div>          
+            </form>
+        </div>
+    </main>
+    
+    <script src="js/script.js"></script>
 </body>
 </html>
