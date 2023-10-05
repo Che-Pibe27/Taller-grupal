@@ -13,6 +13,9 @@ fetch(API_URL)
 function createCards(array){
     container.innerHTML = ''
     for(let item of array){
+        let releaseDate = item.release_date;
+        let dateComponents = releaseDate.split('-');
+        let releaseYear = dateComponents[0];
         container.innerHTML += `
 <div>
     <div class="cardText" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop${item.id}" aria-controls="offcanvasTop">
@@ -28,17 +31,46 @@ function createCards(array){
     </div>
     
     <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop${item.id}" aria-labelledby="offcanvasTopLabel">
-    <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasTopLabel">${item.title}</h5>
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasTopLabel">${item.title}</h5>
 
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <p>${item.overview}</p>
-    <hr>
-    <p>${item.genres.map(genre => genre.name).join(', ')}</p>
-  </div>
-</div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>${item.overview}</p> 
+            <hr> 
+        </div>
+        <section class="d-flex justify-content-between align-items-center p-2 mb-5">
+            <div>
+                <div class="d-flex justify-content-start genres">
+                    <p>${item.genres.map(genre => genre.name).join(', ')}</p>
+                </div>   
+            </div>
+            <div class="dropdown d-flex justify-content-end">
+                    <button class="btn btn-secondary dropdown-toggle align-self-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <p><span class="fw-bold">Year:</span> <span class="float-end">${releaseYear}</span></p>
+                        </li>
+                        <li class="dropdown-item">
+                            <p><span class="fw-bold">Runtime:</span> <span class="float-end">${item.runtime} Mins</span></p>
+                        </li>
+                        <li class="dropdown-item">
+                            <p><span class="fw-bold">Budget:</span> <span class="float-end">$${item.budget}</span></p>
+                        </li>
+                        <li class="dropdown-item">
+                            <p><span class="fw-bold">Revenue:</span> <span class="float-end">$${item.revenue}</span></p>
+                        </li>
+                    </ul>
+            </div>
+        </section>
+    </div>
+
+        
+    
+  
 
 </div>`
 
