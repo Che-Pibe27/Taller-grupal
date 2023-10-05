@@ -15,7 +15,7 @@ function createCards(array){
     for(let item of array){
         container.innerHTML += `
 <div>
-    <div class="cardText">
+    <div class="cardText" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop${item.id}" aria-controls="offcanvasTop">
         <h2 class="title text-light">${item.title}</h2>
         <p class="tagline text-light">${item.tagline}</p>
     </div>
@@ -25,7 +25,21 @@ function createCards(array){
           <span class="fa fa-star"></span> 
           <span class="fa fa-star"></span> 
           <span class="fa fa-star"></span>
-    </div>    
+    </div>
+    
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop${item.id}" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasTopLabel">${item.title}</h5>
+
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>${item.overview}</p>
+    <hr>
+    <p>${item.genres.map(genre => genre.name).join(', ')}</p>
+  </div>
+</div>
+
 </div>`
 
 const starContainer = document.getElementById(`${item.id}`);
