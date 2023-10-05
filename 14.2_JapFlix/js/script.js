@@ -48,13 +48,13 @@ estrellas.forEach((star, index) => {
     if (inputBuscar.value !== '') {
         const searchTerm = inputBuscar.value.toLowerCase();
         
-        const filteredProducts = movieArray.filter((movies) =>
+        const filteredMovies = movieArray.filter((movies) =>
         (movies?.title?.toLowerCase().includes(searchTerm) || 
         movies?.tagline?.toLowerCase().includes(searchTerm) || 
         movies?.overview?.toLowerCase().includes(searchTerm) ||
         (movies.genres.some((genre) => genre.name.toLowerCase().includes(searchTerm)))));
 
-        createCards(filteredProducts); 
+        createCards(filteredMovies); 
     }
     else {
         alert('Ingrese término de busqueda')
